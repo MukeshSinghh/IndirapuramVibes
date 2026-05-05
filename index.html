@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Indirapuram Vibes</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,500&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#fffdf8;
+  --surface:#fff;
+  --border:#f0e9dc;
+  --ink:#1e1a15;
+  --muted:#9a8f80;
+  --accent:#d4531a;
+  --accent2:#2c7a5e;
+  --warm:#f7f0e6;
+  --tag-bg:#fef3ec;
+  --tag-col:#c44a14;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Nunito',sans-serif;
+  font-weight:400;
+  line-height:1.5;
+}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(160deg,#1e1a15 60%,#3a2a1a);
+  padding:52px 20px 60px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 100%,#d4531a28,transparent);
+}
+.hero-badge{
+  display:inline-block;
+  font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:#d4531a;border:1px solid #d4531a55;
+  padding:5px 16px;border-radius:999px;
+  margin-bottom:20px;position:relative;
+}
+.hero h1{
+  font-family:'Crimson Text',serif;
+  font-size:clamp(2.8rem,10vw,5.5rem);
+  font-weight:800;
+  color:#fff;
+  line-height:1;
+  position:relative;
+  letter-spacing:-0.01em;
+}
+.hero h1 em{font-style:italic;color:#d4531a}
+.hero-sub{
+  font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:#9a8f80;margin-top:14px;position:relative;
+}
+
+/* ── FILTER TABS ── */
+.filter-wrap{
+  position:sticky;top:0;z-index:50;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+.filter-tabs{
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  padding:0 8px;
+}
+.filter-tabs::-webkit-scrollbar{display:none}
+.tab-btn{
+  flex-shrink:0;
+  scroll-snap-align:start;
+  background:none;border:none;cursor:pointer;
+  font-family:'Nunito',sans-serif;
+  font-size:0.7rem;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--muted);
+  padding:14px 14px;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;
+  white-space:nowrap;
+}
+.tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-btn:hover{color:var(--accent)}
+
+/* ── MAIN ── */
+main{
+  max-width:760px;
+  margin:0 auto;
+  padding:28px 16px 80px;
+}
+
+/* ── SPECIAL BANNER ── */
+.special-banner{
+  background:linear-gradient(135deg,#1e1a15,#3a2a1a);
+  border-radius:14px;
+  padding:22px 20px;
+  margin-bottom:32px;
+  display:flex;align-items:center;gap:16px;
+  position:relative;overflow:hidden;
+}
+.special-banner::after{
+  content:'☕';
+  position:absolute;right:-4px;bottom:-14px;
+  font-size:5rem;opacity:0.07;pointer-events:none;
+}
+.special-banner .s-icon{font-size:2.2rem;flex-shrink:0}
+.special-banner .label{
+  font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:#d4531a;margin-bottom:4px;
+}
+.special-banner .name{
+  font-family:'Crimson Text',serif;
+  font-size:1.15rem;font-style:italic;
+  color:#fff;margin-bottom:3px;
+}
+.special-banner .desc{font-size:0.78rem;color:#9a8f80}
+
+/* ── SECTION ── */
+.menu-section{
+  margin-bottom:52px;
+  scroll-margin-top:58px;
+  opacity:0;
+  animation:fadeUp .5s ease forwards;
+}
+.menu-section:nth-child(1){animation-delay:.05s}
+.menu-section:nth-child(2){animation-delay:.1s}
+.menu-section:nth-child(3){animation-delay:.15s}
+.menu-section:nth-child(4){animation-delay:.2s}
+.menu-section:nth-child(5){animation-delay:.25s}
+.menu-section:nth-child(6){animation-delay:.3s}
+.menu-section:nth-child(7){animation-delay:.35s}
+.menu-section:nth-child(8){animation-delay:.4s}
+.menu-section:nth-child(9){animation-delay:.45s}
+.menu-section:nth-child(10){animation-delay:.5s}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.section-head{
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:18px;
+  padding-bottom:14px;
+  border-bottom:2px solid var(--ink);
+}
+.section-icon{font-size:1.5rem;line-height:1}
+.section-title{
+  font-family:'Crimson Text',serif;
+  font-size:clamp(1.3rem,4vw,1.8rem);
+  font-weight:800;color:var(--ink);line-height:1.1;
+}
+.section-count{
+  margin-left:auto;
+  font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap;
+}
+
+/* ── SUB LABEL ── */
+.sub-label{
+  font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--muted);
+  margin:18px 0 10px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--border);
+}
+.sub-label:first-of-type{margin-top:0}
+
+/* ── ITEM LIST ── */
+.items-list{display:flex;flex-direction:column}
+
+.item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
+}
+.item:last-child{border-bottom:none}
+.item-left{flex:1;min-width:0}
+.item-name{
+  font-size:0.93rem;font-weight:600;
+  color:var(--ink);line-height:1.3;
+}
+.item-name.featured::after{
+  content:' ★';color:var(--accent);font-size:0.75rem;
+}
+.item-sub{font-size:0.76rem;color:var(--muted);margin-top:2px}
+
+/* price variants */
+.price{
+  font-family:'Crimson Text',serif;
+  font-size:1rem;font-weight:600;
+  color:var(--accent);white-space:nowrap;flex-shrink:0;
+}
+.price-hc{
+  display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0;
+}
+.hc-row{display:flex;align-items:center;gap:6px}
+.hc-lbl{
+  font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--muted);width:26px;text-align:right;
+}
+.hc-val{
+  font-family:'Crimson Text',serif;
+  font-size:0.88rem;font-weight:600;color:var(--accent);
+}
+
+/* ── FLOWER TAG ── */
+.flower-tag{
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;
+  background:var(--tag-bg);color:var(--tag-col);
+  padding:2px 7px;border-radius:999px;margin-top:3px;
+}
+
+/* ── KULHAD CARDS ── */
+.kulhad-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:10px;margin-top:4px;
+}
+.kulhad-card{
+  background:var(--warm);
+  border:1px solid var(--border);
+  border-radius:10px;padding:14px;
+  display:flex;flex-direction:column;gap:6px;
+}
+.kulhad-card .item-name{font-size:0.85rem}
+.kulhad-card .price{font-size:1rem}
+
+/* ── FOOTER ── */
+footer{
+  background:#1e1a15;
+  padding:40px 20px;text-align:center;
+}
+.f-name{
+  font-family:'Crimson Text',serif;
+  font-size:1.8rem;font-style:italic;color:#fff;margin-bottom:8px;
+}
+.f-divider{width:40px;height:1px;background:#d4531a;margin:14px auto;opacity:0.5}
+.f-info{font-size:0.8rem;color:#7a7068;line-height:2}
+
+/* ── RESPONSIVE ── */
+@media(max-width:480px){
+  .hero{padding:40px 16px 48px}
+  .tab-btn{padding:13px 10px;font-size:0.65rem}
+  .kulhad-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">  
+  <h1>Indirapuram<br><em>Vibes</em></h1>
+  <div class="hero-badge">☕ Vibes Menu — 2025</div>
+</header>
+
+<div class="filter-wrap">
+  <div class="filter-tabs" id="tabs">
+    <button class="tab-btn" data-target="topselling">🍟 Top Selling</button>
+    <button class="tab-btn" data-target="combos">🍟 Food Combos</button>
+	<button class="tab-btn" data-target="healthyfy">🍟 Healthyfy</button>
+    <button class="tab-btn active" data-target="chai">🍵 Chai</button>
+    <button class="tab-btn" data-target="coffee">☕ Coffee</button>
+    <button class="tab-btn" data-target="drinks">🌺 Drinks</button>
+    <button class="tab-btn" data-target="lassi">🥛 Lassi</button>
+    <button class="tab-btn" data-target="shakes">🧋 Shakes</button>
+    <button class="tab-btn" data-target="burgers">🍔 Burgers</button>
+    <button class="tab-btn" data-target="sandwiches">🥪 Sandwiches</button>
+    <button class="tab-btn" data-target="pizza">🍕 Pizza</button>
+    <button class="tab-btn" data-target="wraps">🌯 Wraps</button>
+	<button class="tab-btn" data-target="pasta">🌯 Pasta</button>
+	<button class="tab-btn" data-target="chilla">🌯 Chilla</button>
+	<button class="tab-btn" data-target="parantha">🌯 Parantha</button>	
+    <button class="tab-btn" data-target="snacks">🍟 Snacks</button>
+  </div>
+</div>
+
+<main>
+  <div class="special-banner">
+    <div class="s-icon">☕</div>
+    <div>
+      <div class="label">House Special</div>
+      <div class="name">Hibiscus Tea, Butterfly Blue Pea Tea/Drinks, Chamomile Rose Tea/Drink</div>
+    </div>
+  </div>
+
+  <!-- Top Selling -->
+  <section class="menu-section" id="topselling">
+    <div class="section-head">
+      <span class="section-icon">🥛</span>
+      <h2 class="section-title">Top Selling</h2>
+      <span class="section-count">3 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Special Tea</div></div><div class="price">₹30</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Regular Coffee</div></div><div class="price">₹70</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Burger Combo</div></div><div class="price">₹90</div></div>
+    </div>
+  </section>
+
+  <!-- Food Combo -->
+  <section class="menu-section" id="combos">
+    <div class="section-head">
+      <span class="section-icon">🥛</span>
+      <h2 class="section-title">Food Combos</h2>
+      <span class="section-count">3 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Burger Combo</div></div><div class="price">₹90</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Aloo + 4 Poori </div></div><div class="price">₹120</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Rajma + Rice</div></div><div class="price">₹120</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Chole + Rice</div></div><div class="price">₹120</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Thali of the day</div></div><div class="price">₹200</div></div>
+	  
+    </div>
+  </section>
+
+  <!-- Healthyfy -->
+  <section class="menu-section" id="healthyfy">
+    <div class="section-head">
+      <span class="section-icon">🥛</span>
+      <h2 class="section-title">Healthfy</h2>
+      <span class="section-count">3 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Special Tea</div></div><div class="price">₹30</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Regular Coffee</div></div><div class="price">₹70</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Burger Combo</div></div><div class="price">₹90</div></div>
+    </div>
+  </section>
+
+
+  <!-- CHAI -->
+  <section class="menu-section" id="chai">
+    <div class="section-head">
+      <span class="section-icon">🍵</span>
+      <h2 class="section-title">Chai / Tea</h2>
+      <span class="section-count">10 options</span>
+    </div>
+
+    <div class="sub-label">With Milk</div>
+    <div class="items-list">
+      <div class="item">
+        <div class="item-left">
+          <div class="item-name featured">Humsafar Special Chai</div>
+          <div class="item-sub">Regular / Special</div>
+        </div>
+        <div class="price-hc">
+          <div class="hc-row"><span class="hc-lbl">Reg</span><span class="hc-val">₹30</span></div>
+          <div class="hc-row"><span class="hc-lbl">Spl</span><span class="hc-val">₹50</span></div>
+        </div>
+      </div>
+      <div class="item"><div class="item-left"><div class="item-name">Tandoori Mataka Chai</div></div><div class="price">₹50</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Jaggery Chai</div></div><div class="price">₹40</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Kesar Pista Chai</div></div><div class="price">₹40</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Butterscotch Chai</div></div><div class="price">₹40</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Bun Maska</div></div><div class="price">₹50</div></div>
+    </div>
+
+    <div class="sub-label">Without Milk / Flower Infused</div>
+    <div class="items-list">
+      <div class="item">
+        <div class="item-left">
+          <div class="item-name">Hibiscus, Cloves, Cinnamon, Peppermint Chai</div>
+          <div><span class="flower-tag">🌺 Flower Infused</span></div>
+        </div>
+        <div class="price">₹60</div>
+      </div>
+      <div class="item">
+        <div class="item-left">
+          <div class="item-name">Chamomile Chai</div>
+          <div><span class="flower-tag">🌼 Floral</span></div>
+        </div>
+        <div class="price">₹50</div>
+      </div>
+      <div class="item"><div class="item-left"><div class="item-name">Lemon Honey Tulsi Chai</div></div><div class="price">₹40</div></div>
+      <div class="item">
+        <div class="item-left">
+          <div class="item-name">Hibiscus Blueberry Mint Chai</div>
+          <div><span class="flower-tag">🌺 Flower Infused</span></div>
+        </div>
+        <div class="price">₹60</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COFFEE -->
+  <section class="menu-section" id="coffee">
+    <div class="section-head">
+      <span class="section-icon">☕</span>
+      <h2 class="section-title">Coffee</h2>
+      <span class="section-count">10 options</span>
+    </div>
+
+    <div class="sub-label">Milk Coffee &nbsp;·&nbsp; Hot / Cold</div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Regular Coffee</div></div><div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹70</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹120</span></div></div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Cappuccino Coffee</div></div><div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹90</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹140</span></div></div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Latte Coffee</div></div><div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹90</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹140</span></div></div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Rich Chocolate Coffee</div></div><div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹80</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹130</span></div></div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Black Beans Coffee</div></div><div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹100</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹150</span></div></div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Hazelnut Coffee</div></div><div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹95</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹145</span></div></div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Caramel Coffee</div></div><div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹95</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹145</span></div></div></div>
+    </div>
+
+    <div class="sub-label">Black Coffee / Natural Flower Fusion</div>
+    <div class="items-list">
+      <div class="item">
+        <div class="item-left">
+          <div class="item-name">Saffron, Jasmine, Lavender, Blueberry</div>
+          <div><span class="flower-tag">🌸 Flower Powered</span></div>
+        </div>
+        <div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹90</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹180</span></div></div>
+      </div>
+      <div class="item">
+        <div class="item-left">
+          <div class="item-name">Hibiscus Blueberry Coffee</div>
+          <div><span class="flower-tag">🌺 Flower Powered</span></div>
+        </div>
+        <div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹80</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹170</span></div></div>
+      </div>
+      <div class="item">
+        <div class="item-left">
+          <div class="item-name">Chamomile Rose Mint Coffee</div>
+          <div><span class="flower-tag">🌼 Flower Powered</span></div>
+        </div>
+        <div class="price-hc"><div class="hc-row"><span class="hc-lbl">Hot</span><span class="hc-val">₹90</span></div><div class="hc-row"><span class="hc-lbl">Cold</span><span class="hc-val">₹180</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOWER DRINKS -->
+  <section class="menu-section" id="drinks">
+    <div class="section-head">
+      <span class="section-icon">🌺</span>
+      <h2 class="section-title">Natural Flower Infused Drinks</h2>
+      <span class="section-count">3 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Hibiscus Drink</div><div><span class="flower-tag">🌺 Natural</span></div></div><div class="price">₹150</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Butterfly Blue Pea Drink</div><div><span class="flower-tag">💙 Natural</span></div></div><div class="price">₹140</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Chamomile Rose Drink</div><div><span class="flower-tag">🌹 Natural</span></div></div><div class="price">₹140</div></div>
+    </div>
+  </section>
+
+  <!-- LASSI -->
+  <section class="menu-section" id="lassi">
+    <div class="section-head">
+      <span class="section-icon">🥛</span>
+      <h2 class="section-title">Lassi</h2>
+      <span class="section-count">3 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Sweet Salty Lassi</div></div><div class="price">₹70</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Mangi Maza Lassi</div></div><div class="price">₹80</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Jaggery Lassi</div></div><div class="price">₹90</div></div>
+    </div>
+  </section>
+
+  <!-- SHAKES -->
+  <section class="menu-section" id="shakes">
+    <div class="section-head">
+      <span class="section-icon">🧋</span>
+      <h2 class="section-title">Milk Shakes</h2>
+      <span class="section-count">5 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Pineapple Milk Shake</div></div><div class="price">₹100</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Peach Milk Shake</div></div><div class="price">₹120</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Chocolate Milk Shake</div></div><div class="price">₹140</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Strawberry Milk Shake</div></div><div class="price">₹150</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Kesar Pista Milk Shake</div></div><div class="price">₹160</div></div>
+    </div>
+  </section>
+
+  <!-- BURGERS -->
+  <section class="menu-section" id="burgers">
+    <div class="section-head">
+      <span class="section-icon">🍔</span>
+      <h2 class="section-title">Burgers</h2>
+      <span class="section-count">4 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Mexican Aloo Tikki Burger</div></div><div class="price">₹60</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Crispy Aloo Tikki Burger</div></div><div class="price">₹100</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Grilled Paneer Burger</div></div><div class="price">₹120</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Crispy Paneer Burger</div></div><div class="price">₹130</div></div>
+    </div>
+  </section>
+
+  <!-- SANDWICHES -->
+  <section class="menu-section" id="sandwiches">
+    <div class="section-head">
+      <span class="section-icon">🥪</span>
+      <h2 class="section-title">Sandwiches</h2>
+      <span class="section-count">6 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Aloo Sandwich</div></div><div class="price">₹100</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Mix Veggies Sandwich</div></div><div class="price">₹100</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Aloo Cheese Sandwich</div></div><div class="price">₹120</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Peri-Peri Sandwich</div></div><div class="price">₹120</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Corn Cheese Sandwich</div></div><div class="price">₹140</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Grilled Paneer Sandwich</div></div><div class="price">₹150</div></div>
+    </div>
+  </section>
+
+  <!-- PIZZA -->
+  <section class="menu-section" id="pizza">
+    <div class="section-head">
+      <span class="section-icon">🍕</span>
+      <h2 class="section-title">Pizza</h2>
+      <span class="section-count">9 options</span>
+    </div>
+
+    <div class="sub-label">Regular Pizza</div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Pizza Mania</div></div><div class="price">₹69</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Onion Capsicum Pizza</div></div><div class="price">₹100</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Corn Cheese Pizza</div></div><div class="price">₹120</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Talk Of Town Pizza</div></div><div class="price">₹150</div></div>
+      <div class="item">
+        <div class="item-left">
+          <div class="item-name featured">The Pollo Pizza</div>
+          <div class="item-sub">Corn, Jalapeños, Capsicum, Olives</div>
+        </div>
+        <div class="price">₹199</div>
+      </div>
+      <div class="item">
+        <div class="item-left"><div class="item-name featured">Humsafar Farmhouse Pizza</div></div>
+        <div class="price">₹220</div>
+      </div>
+    </div>
+
+    <div class="sub-label">🏺 Kulhad Pizza</div>
+    <div class="kulhad-grid">
+      <div class="kulhad-card"><div class="item-name">Onion Capsicum Kulhad Pizza</div><div class="price">₹120</div></div>
+      <div class="kulhad-card"><div class="item-name">Sweet Corn Kulhad Pizza</div><div class="price">₹140</div></div>
+      <div class="kulhad-card"><div class="item-name">Paneer Kulhad Pizza</div><div class="price">₹160</div></div>
+    </div>
+  </section>
+
+  <!-- WRAPS -->
+  <section class="menu-section" id="wraps">
+    <div class="section-head">
+      <span class="section-icon">🌯</span>
+      <h2 class="section-title">Wraps &amp; Rolls</h2>
+      <span class="section-count">4 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Aloo Tikki with Mix Veg Wrap</div></div><div class="price">₹89</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Cheesy French Fry Wrap</div></div><div class="price">₹115</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Mexican Wrap</div></div><div class="price">₹140</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Paneer Capsicum Wrap</div></div><div class="price">₹150</div></div>
+    </div>
+  </section>
+
+  <!-- Pasta -->
+  <section class="menu-section" id="pasta">
+    <div class="section-head">
+      <span class="section-icon">🥛</span>
+      <h2 class="section-title">Pasta</h2>
+      <span class="section-count">3 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">White Sauce Pasta</div></div><div class="price">₹150</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Red Sauce Pasta</div></div><div class="price">₹170</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Mix Sauce Pasta</div></div><div class="price">₹200</div></div>
+    </div>
+  </section>
+  
+  <!-- Chilla -->
+  <section class="menu-section" id="chilla">
+    <div class="section-head">
+      <span class="section-icon">🥛</span>
+      <h2 class="section-title">Besan Chilla</h2>
+      <span class="section-count">3 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Veg Besan Chila</div></div><div class="price">₹80</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Paneer Besan Chila</div></div><div class="price">₹110</div></div>
+    </div>
+  </section>
+
+  <!-- Parantha -->
+  <section class="menu-section" id="parantha">
+    <div class="section-head">
+      <span class="section-icon">🥛</span>
+      <h2 class="section-title">Parantha</h2>
+      <span class="section-count">3 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Aloo Parantha</div></div><div class="price">₹60</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Paneer Parantha</div></div><div class="price">₹90</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Plain Tikona Parantha</div></div><div class="price">₹40</div></div>
+    </div>
+  </section>
+
+  <!-- SNACKS -->
+  <section class="menu-section" id="snacks">
+    <div class="section-head">
+      <span class="section-icon">🍟</span>
+      <h2 class="section-title">Crispy Yummy Snacks</h2>
+      <span class="section-count">17 options</span>
+    </div>
+    <div class="items-list">
+      <div class="item"><div class="item-left"><div class="item-name">Crispy Soya Chunks</div></div><div class="price">₹140</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Crispy Paneer Chunks</div></div><div class="price">₹160</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Crispy French Fries</div></div><div class="price">₹180</div></div>
+    
+      <div class="item"><div class="item-left"><div class="item-name">Plain Maggi</div></div><div class="price">₹40</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Veg Maggi</div></div><div class="price">₹60</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Veg Atta Maggi</div></div><div class="price">₹70</div></div>
+      
+      <div class="item"><div class="item-left"><div class="item-name">Sweet Corns</div></div><div class="price">₹70</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Peri-Peri Corns</div></div><div class="price">₹80</div></div>
+      
+      <div class="item"><div class="item-left"><div class="item-name">French Fries</div></div><div class="price">₹80</div></div>
+      <div class="item"><div class="item-left"><div class="item-name">Peri-Peri Fries</div></div><div class="price">₹120</div></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="f-name">Indirapuram Vibes Cafe</div>
+  <div class="f-divider"></div>
+  <div class="f-info">
+    Pure Veg &nbsp;·&nbsp; All prices inclusive of taxes<br>
+    Thank you for visiting — see you again! ☕
+  </div>
+</footer>
+
+<script>
+const ids = ['chai','coffee','drinks','lassi','shakes','burgers','sandwiches','pizza','wraps','snacks'];
+const tabs = document.querySelectorAll('.tab-btn');
+
+// Click to scroll
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.target;
+    document.getElementById(target)?.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+});
+
+// Highlight tab on scroll
+const sections = ids.map(id => document.getElementById(id));
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = ids.indexOf(e.target.id);
+      if (idx > -1) {
+        tabs.forEach(t => t.classList.remove('active'));
+        tabs[idx].classList.add('active');
+        tabs[idx].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
+      }
+    }
+  });
+}, { threshold: 0.3, rootMargin: '-56px 0px -40% 0px' });
+
+sections.forEach(s => s && io.observe(s));
+</script>
+</body>
+</html>
